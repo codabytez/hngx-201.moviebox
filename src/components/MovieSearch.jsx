@@ -43,7 +43,7 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
 
   return (
     <>
-      <div className="border h-[90px] bg-gray-700">
+      <div className="h-[90px] bg-gray-500">
         <Navbar
           searchQuery={searchQuery}
           onSearchInputChange={onSearchInputChange}
