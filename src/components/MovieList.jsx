@@ -34,7 +34,7 @@ const MovieList = ({ movieList }) => {
           </span>
         </a>
       </div>
-      <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 sm:gap-x-20 gap-y-10 border border-black">
+      <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 sm:gap-x-20 gap-y-10">
         {movies.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}
