@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({ id, title, releaseDate, posterUrl }) => {
   return (
-    <Link to={`/movie/${id}`} className="w-[250px]">
-      <div data-testid="movie-card" className=" flex flex-col justify-center ">
+    <Link to={`/movie/${id}`} className="min-w-[150px] max-w-[250px] w-[100%]">
+      <div data-testid="movie-card" className="flex flex-col justify-center ">
         <img data-testid="movie-poster" src={posterUrl} alt={title} />
         <p
           data-testid="movie-release-date"

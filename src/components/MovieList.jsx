@@ -5,12 +5,14 @@ import MovieCard from "./MovieCard";
 const MovieList = ({ movieList }) => {
   const movies = movieList;
   return (
-    <div className="m-[70px]">
+    <div className="my-[70px] mx-4 sm:m-[70px]">
       <div className="flex justify-between items-center mb-[44px]">
-        <h2 className="text-black text-4xl font-bold">Featured Movie</h2>
+        <h2 className="text-black text-2xl sm:text-4xl font-bold">
+          Featured Movie
+        </h2>
         <a
           href="#"
-          className="text-rose-700 text-lg font-normal leading-normal flex items-center gap-2 hover:underline"
+          className="text-rose-700 text-lg font-normal leading-normal hidden sm:flex items-center gap-2 hover:underline"
         >
           View All
           <span>
@@ -32,7 +34,7 @@ const MovieList = ({ movieList }) => {
           </span>
         </a>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
+      <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 sm:gap-x-20 gap-y-10 border border-black">
         {movies.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import MoviePageSidebar from "./MoviePageSidebar";
+import LoadingPage from "./LoadingPage";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -23,58 +24,49 @@ const MoviePage = () => {
   }, [id]);
 
   const releaseDate = new Date(movie?.release_date);
-  const releaseDateUTC = releaseDate.getTime();
+  const releaseDateUTC = releaseDate.toUTCString().slice(0, 16);
 
   return (
-    <div className="flex">
-      <MoviePageSidebar />
-      {!movie ? (
-        <div className=" hidden">Loading...</div>
-      ) : (
-        <div className="mx-14 my-9">
-          <img
-            src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
-            alt={movie?.title}
-            className="rounded-3xl h-[450px] w-full object-cover object-center"
-          />
-          <div className="m-8 flex flex-col gap-6">
-            <div className="flex gap-2">
-              <h2
-                data-testid="movie-title"
-                className="text-neutral-700 text-[23px] font-medium"
-              >
-                {movie?.title}
-              </h2>
-              <span className="text-neutral-700 text-[23px] font-normal">
-                •
-              </span>
+    <>
+      <div className="flex">
+        <MoviePageSidebar id={id} />
+        {!movie ? (
+          <div className="w-full">
+            <LoadingPage />
+          </div>
+        ) : (
+          <div className="mx-4 sm:mx-14 my-9">
+            <img
+              src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+              alt={movie?.title}
+              className="rounded-3xl h-[450px] w-full object-cover object-center"
+            />
+            <div className="m-2 sm:m-4 flex flex-col gap-6">
+              <div className="lg:flex gap-2 text-[20px] text-neutral-700  font-bold">
+                <h2 data-testid="movie-title" className="">
+                  {movie?.title}
+                </h2>
+                <span className=" text-[23px] hidden lg:inline-block">•</span>
+                <p data-testid="movie-release-date" className="">
+                  {" "}
+                  {releaseDateUTC}
+                </p>
+                <span className=" text-[23px] hidden lg:inline-block">•</span>
+                <p data-testid="movie-runtime" className="">
+                  {`${movie?.runtime}mins`}
+                </p>
+              </div>
               <p
-                data-testid="movie-release-date"
-                className="text-neutral-700 text-[23px] font-medium"
+                data-testid="movie-overview"
+                className="text-zinc-800 text-xl font-normal"
               >
-                {" "}
-                {releaseDateUTC}
-              </p>
-              <span className="text-neutral-700 text-[23px] font-normal">
-                •
-              </span>
-              <p
-                data-testid="movie-runtime"
-                className="text-neutral-700 text-[23px] font-medium"
-              >
-                {`${movie?.runtime}mins`}
+                Overview: {movie?.overview}
               </p>
             </div>
-            <p
-              data-testid="movie-overview"
-              className="text-zinc-800 text-xl font-normal"
-            >
-              Overview: {movie?.overview}
-            </p>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 
