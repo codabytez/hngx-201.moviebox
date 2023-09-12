@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./Homepage";
-import MoviePage from "./MoviePage";
+import MoviePage from "./MoviePages";
 import ErrorPage from "./ErrorPage";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
     <div className="max-w[1400px] m-auto">
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/movie" element={<MoviePage />} />
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="*" element={<ErrorPage error={error} />} />
       </Routes>
