@@ -5,13 +5,11 @@ import Hero from "./Hero";
 import MovieList from "./MovieList";
 import ErrorPage from "./ErrorPage";
 import LoadingPage from "./LoadingPage";
-import MovieSearch from "./MovieSearch";
 
-const Homepage = () => {
+const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const apiKey = "42f956d501059428aaea8646930dd130";
@@ -24,19 +22,15 @@ const Homepage = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        // setIsLoading(false);
+        setIsLoading(false);
         const errorMessage = error;
         setError(errorMessage);
         console.error("Error fetching movie data:", error);
       });
   }, []);
 
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-hidden max-w-[1400px] min-w-[300px] m-auto">
       {isLoading ? (
         <LoadingPage />
       ) : error ? (
@@ -45,12 +39,8 @@ const Homepage = () => {
         <>
           <Navbar
             searchQuery={searchQuery}
-            onSearchInputChange={handleSearchInputChange}
-          />
-          <MovieSearch
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            onSearchInputChange={handleSearchInputChange}
+            onSearchInputChange={onSearchInputChange}
+            onHandleSearch={onHandleSearch}
           />
           <Hero heroMovies={movies} />
           <MovieList movieList={movies} />
