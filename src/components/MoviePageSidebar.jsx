@@ -9,12 +9,12 @@ import { NavLink } from "react-router-dom";
 const MoviePageSidebar = ({ id }) => {
   return (
     <div className="relative">
-      <div className="absolute min-w-[226px] bg-white rounded-tr-[45px] rounded-br-[45px] border border-black border-opacity-30 md:flex flex-col gap-12 hidden ">
+      <div className="min-w-[226px] bg-white rounded-tr-[45px] rounded-br-[45px] border border-black border-opacity-30 md:flex flex-col gap-12 hidden ">
         <div className="p-5">
           <Logo />
         </div>
         <div className="flex flex-col select-none">
-          <NavLink
+          {/* <NavLink
             to="/"
             className="bg-rose-700 bg-opacity-10 active:bg-rose-700 active:bg-opacity-10"
           >
@@ -41,9 +41,9 @@ const MoviePageSidebar = ({ id }) => {
           >
             {" "}
             Upcoming{" "}
-          </NavLink>
+          </NavLink> */}
 
-          {/* <p className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer">
+          <p className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer">
             <img src={home} alt="home" className="inline-block w-6 h-6 mr-2" />
             Home
           </p>
@@ -70,7 +70,7 @@ const MoviePageSidebar = ({ id }) => {
               className="inline-block w-6 h-6 mr-2"
             />
             Upcoming
-          </p> */}
+          </p>
         </div>
         <div className="w-[170px] p-4 pt-9 flex flex-col gap-2 bg-pink-100 bg-opacity-40 rounded-[20px] border border-rose-700 border-opacity-70 mx-6">
           <div className="text-zinc-800 text-opacity-80 text-[15px] font-semibold">

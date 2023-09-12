@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 const MovieCard = ({ id, title, releaseDate, posterUrl }) => {
   return (
     <Link to={`/movie/${id}`} className="min-w-[150px] max-w-[250px] w-[100%]">
-      <div data-testid="movie-card" className="flex flex-col justify-center ">
+      <div
+        data-testid="movie-card"
+        className="flex flex-col justify-center gap-3"
+      >
         <img data-testid="movie-poster" src={posterUrl} alt={title} />
         <p
           data-testid="movie-release-date"
