@@ -15,9 +15,6 @@ function App() {
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="*" element={<ErrorPage error={error} />} />
       </Routes>
-      {/* <MoviePage /> */}
-      {/* <Homepage /> */}
-      {/* <MovieList /> */}
     </div>
   );
 }
