@@ -6,6 +6,7 @@ import Homepage from "./Homepage";
 import MoviePage from "./MoviePages";
 import ErrorPage from "./ErrorPage";
 import MovieSearch from "./MovieSearch";
+import ComingSoon from "./ComingSoon";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,6 +53,7 @@ function App() {
             />
           }
         />
+        <Route path="/comingsoon" element={<ComingSoon />} />
         <Route path="*" element={<ErrorPage error={error} />} />
       </Routes>
     </div>

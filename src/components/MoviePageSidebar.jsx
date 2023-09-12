@@ -9,70 +9,50 @@ import { NavLink } from "react-router-dom";
 const MoviePageSidebar = ({ id }) => {
   return (
     <div className="relative">
-      <div className="min-w-[226px] bg-white rounded-tr-[45px] rounded-br-[45px] border border-black border-opacity-30 md:flex flex-col gap-12 hidden ">
+      <div className="overflow-hidden min-w-[226px] bg-white rounded-tr-[45px] rounded-br-[45px] border border-black border-opacity-30 md:flex flex-col gap-12 hidden ">
         <div className="p-5">
           <Logo />
         </div>
         <div className="flex flex-col select-none">
-          {/* <NavLink
+          <NavLink
             to="/"
-            className="bg-rose-700 bg-opacity-10 active:bg-rose-700 active:bg-opacity-10"
+            className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer"
           >
-            {" "}
-            Home{" "}
-          </NavLink>
-          <NavLink
-            to={`/movie/${id}`}
-            className="bg-red-100 bg-opacity-10 focus:bg-red-700 active:bg-opacity-10"
-          >
-            {" "}
-            Movies{" "}
-          </NavLink>
-          <NavLink
-            to="/tv-shows"
-            className="bg-rose-700 bg-opacity-10 active:bg-rose-700 active:bg-opacity-10"
-          >
-            {" "}
-            TV Shows{" "}
-          </NavLink>
-          <NavLink
-            to="/upcoming"
-            className="bg-rose-700 bg-opacity-10 active:bg-rose-700 active:bg-opacity-10"
-          >
-            {" "}
-            Upcoming{" "}
-          </NavLink> */}
-
-          <p className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer">
             <img src={home} alt="home" className="inline-block w-6 h-6 mr-2" />
             Home
-          </p>
-          <p className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer">
+          </NavLink>
+          <NavLink className="bg-rose-700 bg-opacity-10 p-6 cursor-pointer">
             <img
               src={movies}
               alt="movies"
               className="inline-block w-6 h-6 mr-2"
             />
             Movies
-          </p>
-          <p className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer">
+          </NavLink>
+          <NavLink
+            to="/comingsoon"
+            className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer"
+          >
             <img
               src={tvShow}
               alt="tvShow"
               className="inline-block w-6 h-6 mr-2"
             />
             Tv Series
-          </p>
-          <p className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer">
+          </NavLink>
+          <NavLink
+            to="/comingsoon"
+            className="hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer"
+          >
             <img
               src={upcoming}
               alt="upcoming"
               className="inline-block w-6 h-6 mr-2"
             />
             Upcoming
-          </p>
+          </NavLink>
         </div>
-        <div className="w-[170px] p-4 pt-9 flex flex-col gap-2 bg-pink-100 bg-opacity-40 rounded-[20px] border border-rose-700 border-opacity-70 mx-6">
+        <div className="w-[170px] p-4 pt-9 flex flex-col gap-2 bg-pink-50 transition-all hover:bg-pink-100 bg-opacity-40 rounded-[20px] border border-rose-700 border-opacity-70 mx-6">
           <div className="text-zinc-800 text-opacity-80 text-[15px] font-semibold">
             Play movie quizes
             <br />
@@ -85,14 +65,20 @@ const MoviePageSidebar = ({ id }) => {
             <br />
             now
           </div>
-          <button className="text-xs font-medium bg-rose-700 bg-opacity-20 rounded-[30px] px-4 py-1">
+          <NavLink
+            to="/comingsoon"
+            className="text-xs font-medium bg-rose-700 text-center bg-opacity-20 rounded-[30px] px-4 py-1"
+          >
             Start playing
-          </button>
+          </NavLink>
         </div>
-        <div className=" text-stone-500 text-xl font-semibold flex p-6">
+        <NavLink
+          to="/comingsoon"
+          className="flex hover:bg-rose-700 hover:bg-opacity-10 active:bg-rose-700 active:bg-opacity-10 p-6 cursor-pointer"
+        >
           <img className="shadow" src={logout} />
           Log out
-        </div>
+        </NavLink>
       </div>
     </div>
   );
