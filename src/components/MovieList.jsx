@@ -5,7 +5,7 @@ import MovieCard from "./MovieCard";
 const MovieList = ({ movieList }) => {
   const movies = movieList;
   return (
-    <div className="my-[70px] mx-4 sm:m-[70px]">
+    <div className="mt-[70px] mx-4 my-6 sm:mx-[70px] sm:mt-[70px] sm:mb-10">
       <div className="flex justify-between items-center mb-[44px]">
         <h2 className="text-black text-2xl sm:text-4xl font-bold">
           Featured Movie

@@ -5,6 +5,7 @@ import Hero from "./Hero";
 import MovieList from "./MovieList";
 import ErrorPage from "./ErrorPage";
 import LoadingPage from "./LoadingPage";
+import Footer from "./Footer";
 
 const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const [movies, setMovies] = useState([]);
@@ -44,6 +45,7 @@ const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
           />
           <Hero heroMovies={movies} />
           <MovieList movieList={movies} />
+          <Footer />
         </>
       )}
     </div>

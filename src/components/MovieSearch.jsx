@@ -4,6 +4,7 @@ import LoadingPage from "./LoadingPage";
 import MovieCard from "./MovieCard";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const apiKey = "42f956d501059428aaea8646930dd130";
 
@@ -42,21 +43,21 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
 
   return (
     <>
-      <div className="border h-[100px] bg-gray-700">
+      <div className="border h-[90px] bg-gray-700">
         <Navbar
           searchQuery={searchQuery}
           onSearchInputChange={onSearchInputChange}
           onHandleSearch={onHandleSearch}
         />
       </div>
-      <div className="max-w-[1400px] min-w-[300px]  p-4 relative bg-gray-200">
+      <div className="max-w-[1400px] min-w-[300px] relative bg-gray-200">
         {loading ? (
           <LoadingPage />
         ) : (
-          <>
+          <div className="p-4">
             <h2 className="text-black text-2xl sm:text-4xl font-bold py-8">
-              {searchResults.lenght
-                ? "Search results for: "
+              {searchResults.length
+                ? `${searchResults.length} Search results for: `
                 : "No search result for: "}
               <span className="text-red-500">{query}</span>
             </h2>
@@ -71,7 +72,8 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
                 />
               ))}
             </div>
-          </>
+            <Footer />
+          </div>
         )}
       </div>
     </>

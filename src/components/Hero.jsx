@@ -7,7 +7,7 @@ const Hero = ({ heroMovies }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentMovieIndex((prevIndex) => (prevIndex + 1) % movies.length);
-    }, 5000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, [currentMovieIndex, movies]);
@@ -17,11 +17,11 @@ const Hero = ({ heroMovies }) => {
   };
 
   return (
-    <div className="h-[600px] border relative">
+    <div className="h-[600px] relative">
       <div className="absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 ease-in-out">
         {movies.slice(0, 5).length > 0 && (
           <div className="relative">
-            <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-[600px] bg-black bg-opacity-50"></div>
+            <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-[600px] bg-black bg-opacity-70"></div>
             <div className="absolute border-white h-full flex items-end sm:items-center p-7 lg:ml-[90px]">
               <div className="text-white min-w-[220px] w-[90%] sm:w-[300px] md:w-[400px] flex flex-col gap-4">
                 <h1 className="text-white text-2xl sm:text-3xl md:text-5xl font-bold md:leading-[56px]">
