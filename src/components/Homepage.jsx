@@ -3,10 +3,15 @@ import axios from "axios";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import MovieList from "./MovieList";
+import ErrorPage from "./ErrorPage";
+import LoadingPage from "./LoadingPage";
+import MovieSearch from "./MovieSearch";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
-  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const apiKey = "42f956d501059428aaea8646930dd130";
@@ -15,51 +20,42 @@ const Homepage = () => {
     axios
       .get(apiUrl)
       .then((response) => {
-        setMovies(response.data.results.slice(0, 5));
+        setMovies(response.data.results);
+        setIsLoading(false);
       })
       .catch((error) => {
+        // setIsLoading(false);
+        const errorMessage = error;
+        setError(errorMessage);
         console.error("Error fetching movie data:", error);
       });
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentMovieIndex((prevIndex) => (prevIndex + 1) % movies.length);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [currentMovieIndex, movies]);
-
-  const handleIndicatorClick = (index) => {
-    setCurrentMovieIndex(index);
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
   };
 
-  const [movieList, setMovieList] = useState([]);
-
-  useEffect(() => {
-    const apiKey = "42f956d501059428aaea8646930dd130";
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc`;
-
-    axios
-      .get(apiUrl)
-      .then((res) => {
-        const movieData = res.data.results.slice(0, 10);
-        setMovieList(movieData);
-      })
-      .catch((err) => {
-        console.log("Error fetching data", err);
-      });
-  }, []);
-
   return (
-    <div className="relative h-[600px] overflow-x-hidden">
-      <Navbar />
-      <Hero
-        movies={movies}
-        onIndicatorClick={handleIndicatorClick}
-        currentMovieIndex={currentMovieIndex}
-      />
-      <MovieList movieList={movieList} />
+    <div className="relative overflow-x-hidden">
+      {isLoading ? (
+        <LoadingPage />
+      ) : error ? (
+        <ErrorPage error={error} />
+      ) : (
+        <>
+          <Navbar
+            searchQuery={searchQuery}
+            onSearchInputChange={handleSearchInputChange}
+          />
+          <MovieSearch
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            onSearchInputChange={handleSearchInputChange}
+          />
+          <Hero heroMovies={movies} />
+          <MovieList movieList={movies} />
+        </>
+      )}
     </div>
   );
 };
