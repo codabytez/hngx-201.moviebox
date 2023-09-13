@@ -22,7 +22,7 @@ This is a movie app that allows users to search for movies and view the details 
 ## Setup and Installation
 
 - Clone the repo
-- Open the project in your favorite editor(preferably VSCode)
+- Open the project in your favorite editor (preferably VSCode)
 - Run `npm install` to install dependencies
 - Run `npm start` to start the app
 
@@ -41,5 +41,3 @@ If you have any question or contributions, please reach out to me on twitter [@c
 ### Live Link
 
 You can view the live application by following this [link](https://hngx-201-moviebox.vercel.app/)
-
-### [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
