@@ -6,7 +6,7 @@ This is a movie app that allows users to search for movies and view the details 
 
 ## Author
 
-- [**Derrick**](https://github.com/codabytez/)
+- [**Chizzi**](https://github.com/codabytez/)
 
 ## Features
 
