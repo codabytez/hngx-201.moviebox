@@ -24,7 +24,7 @@ This is a movie app that allows users to search for movies and view the details 
 - Clone the repo
 - Open the project in your favorite editor (preferably VSCode)
 - Run `npm install` to install dependencies
-- Run `npm start` to start the app
+- Run `npm run dev` to start the app
 
 ## Known Bugs
 
