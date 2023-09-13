@@ -11,7 +11,7 @@ const MoviePage = () => {
 
   useEffect(() => {
     const apiKey = "42f956d501059428aaea8646930dd130";
-    const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
+    const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos`;
 
     axios
       .get(apiUrl)
@@ -37,11 +37,12 @@ const MoviePage = () => {
         ) : (
           <>
             <div data-testid="movie-card" className="mx-4 sm:mx-14 my-9">
-              <img
+              <iframe
                 data-testid="movie-poster"
-                src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-                alt={movie?.title}
-                className="rounded-3xl h-[450px] w-full object-cover object-center"
+                src={`https://www.youtube.com/embed/${movie?.videos?.results[0]?.key}`}
+                title={movie?.title}
+                allowFullScreen
+                className="rounded-2xl h-[450px] w-full"
               />
               <div className="m-2 sm:m-4 flex flex-col gap-6">
                 <div className=" flex flex-col lg:flex-row gap-2 text-[20px] text-neutral-700  font-bold">

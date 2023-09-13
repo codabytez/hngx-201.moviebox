@@ -3,7 +3,7 @@ import IMDB from "../assets/imdb.svg";
 const IMDBRating = ({ children, color = "white" }) => {
   return (
     <>
-      <div className="justify-start items-center gap-3 flex">
+      <div className="justify-start items-center gap-3 flex pl-1">
         <img src={IMDB} alt="IMDB rating" />
         <p
           className={`text-${color} text-xs font-normal font-['DM Sans'] leading-3`}

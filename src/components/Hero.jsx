@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import IMDB from "../assets/imdb.svg";
 import IMDBRating from "./IMDBRating";
 import MovieGenre from "./MovieGenre";
+import { Link } from "react-router-dom";
 
 const Hero = ({ heroMovies, genres }) => {
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
@@ -39,6 +40,30 @@ const Hero = ({ heroMovies, genres }) => {
                 <p className="text-white text-xs md:text-sm font-medium leading-[18px]">
                   {movies[currentMovieIndex]?.overview}
                 </p>
+                <Link
+                  to={`/movie/${movies[currentMovieIndex]?.id}`}
+                  className="hover:cursor-pointer select-none px-4 py-1.5 bg-rose-700 rounded-md justify-start items-center gap-2 flex w-max hover:bg-rose-500 hover:scale-105 transition-all"
+                >
+                  <div className="w-5 h-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM9.5547 7.16795C9.24784 6.96338 8.8533 6.94431 8.52814 7.11833C8.20298 7.29235 8 7.63121 8 8V12C8 12.3688 8.20298 12.7077 8.52814 12.8817C8.8533 13.0557 9.24784 13.0366 9.5547 12.8321L12.5547 10.8321C12.8329 10.6466 13 10.3344 13 10C13 9.66565 12.8329 9.35342 12.5547 9.16795L9.5547 7.16795Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div className="text-white text-sm font-bold font-['DM Sans'] uppercase leading-normal">
+                    Watch trailer
+                  </div>
+                </Link>
               </div>
             </div>
             <img

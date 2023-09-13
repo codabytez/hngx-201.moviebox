@@ -15,18 +15,18 @@ const MovieCard = ({
     <Link to={`/movie/${id}`} className="min-w-[150px] max-w-[250px] w-[100%]">
       <div
         data-testid="movie-card"
-        className="flex flex-col justify-center gap-3"
+        className="flex flex-col justify-center gap-3 transition-all duration-500 hover:shadow-md pb-2"
       >
         <img data-testid="movie-poster" src={posterUrl} alt={title} />
         <p
           data-testid="movie-release-date"
-          className="text-xs font-bold text-[#9CA3AF]"
+          className="text-xs font-bold text-[#9CA3AF] pl-1"
         >
           {releaseDate}
         </p>
         <h2
           data-testid="movie-title"
-          className="text-gray-900 text-lg font-bold leading-tight"
+          className="text-gray-900 text-lg font-bold leading-tight pl-1"
         >
           {title}
         </h2>
