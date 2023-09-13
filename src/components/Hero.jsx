@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import IMDB from "../assets/imdb.svg";
+import { useState, useEffect } from "react";
 import IMDBRating from "./IMDBRating";
-import MovieGenre from "./MovieGenre";
 import { Link } from "react-router-dom";
 
 const Hero = ({ heroMovies, genres }) => {
@@ -19,8 +17,6 @@ const Hero = ({ heroMovies, genres }) => {
   const handleIndicatorClick = (index) => {
     setCurrentMovieIndex(index);
   };
-
-  // console.log(movies);
 
   return (
     <header className="h-[600px] relative">

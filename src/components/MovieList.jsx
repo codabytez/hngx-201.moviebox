@@ -1,5 +1,3 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ movieList, genres }) => {

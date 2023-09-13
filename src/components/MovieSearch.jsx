@@ -59,7 +59,6 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
     }
   }, [query]);
 
-  console.log(searchResults);
 
   return (
     <>
