@@ -36,26 +36,20 @@ const MoviePage = () => {
           </div>
         ) : (
           <>
-            <div className="mx-4 sm:mx-14 my-9">
+            <div data-testid="movie-card" className="mx-4 sm:mx-14 my-9">
               <img
-                src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+                data-testid="movie-poster"
+                src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
                 alt={movie?.title}
                 className="rounded-3xl h-[450px] w-full object-cover object-center"
               />
               <div className="m-2 sm:m-4 flex flex-col gap-6">
-                <div className="lg:flex gap-2 text-[20px] text-neutral-700  font-bold">
-                  <h2 data-testid="movie-title" className="">
-                    {movie?.title}
-                  </h2>
+                <div className=" flex flex-col lg:flex-row gap-2 text-[20px] text-neutral-700  font-bold">
+                  <h2 data-testid="movie-title">{movie?.title}</h2>
                   <span className=" text-[23px] hidden lg:inline-block">•</span>
-                  <p data-testid="movie-release-date" className="">
-                    {" "}
-                    {releaseDateUTC}
-                  </p>
+                  <p data-testid="movie-release-date"> {releaseDateUTC}</p>
                   <span className=" text-[23px] hidden lg:inline-block">•</span>
-                  <p data-testid="movie-runtime" className="">
-                    {`${movie?.runtime}mins`}
-                  </p>
+                  <p data-testid="movie-runtime">{`${movie?.runtime}mins`}</p>
                 </div>
                 <p
                   data-testid="movie-overview"

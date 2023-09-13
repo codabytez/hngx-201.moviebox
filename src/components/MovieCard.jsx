@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
+import IMDBRating from "./IMDBRating";
+import MovieGenre from "./MovieGenre";
 
-const MovieCard = ({ id, title, releaseDate, posterUrl }) => {
+const MovieCard = ({
+  id,
+  title,
+  releaseDate,
+  posterUrl,
+  imdbRating,
+  movie,
+  genres,
+}) => {
   return (
     <Link to={`/movie/${id}`} className="min-w-[150px] max-w-[250px] w-[100%]">
       <div
@@ -16,10 +26,12 @@ const MovieCard = ({ id, title, releaseDate, posterUrl }) => {
         </p>
         <h2
           data-testid="movie-title"
-          className="text-lg text-[#111827] font-bold"
+          className="text-gray-900 text-lg font-bold leading-tight"
         >
           {title}
         </h2>
+        <IMDBRating color="gray-900">{imdbRating}</IMDBRating>
+        <MovieGenre movies={movie} genres={genres} />
       </div>
     </Link>
   );

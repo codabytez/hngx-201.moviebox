@@ -11,6 +11,7 @@ const apiKey = "42f956d501059428aaea8646930dd130";
 const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const { query } = useParams();
   const [searchResults, setSearchResults] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async () => {
@@ -34,12 +35,31 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   };
 
   useEffect(() => {
+    const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+
+    axios
+      .get(genreUrl)
+      .then((response) => {
+        const genreMap = {};
+        response.data.genres.forEach((genre) => {
+          genreMap[genre.id] = genre.name;
+        });
+        setGenres(genreMap);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
     if (query) {
       handleSearch();
     } else {
       setSearchResults([]);
     }
   }, [query]);
+
+  console.log(searchResults);
 
   return (
     <>
@@ -69,6 +89,9 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
                   title={movie.title}
                   releaseDate={movie.release_date.slice(0, 4)}
                   posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                  movie={movie}
+                  genres={genres}
+                  imdbRating={movie.vote_average}
                 />
               ))}
             </div>

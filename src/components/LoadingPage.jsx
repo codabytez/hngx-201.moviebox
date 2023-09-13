@@ -1,6 +1,6 @@
 const LoadingPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-300">
+    <div className="h-screen flex items-center justify-center bg-gray-300">
       <div className="flex justify-center items-center gap-6">
         <h2 className="text-2xl font-bold text-gray-600">Loading...</h2>
         <div className="animate-spin">

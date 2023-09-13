@@ -2,7 +2,7 @@
 // import axios from "axios";
 import MovieCard from "./MovieCard";
 
-const MovieList = ({ movieList }) => {
+const MovieList = ({ movieList, genres }) => {
   const movies = movieList;
   return (
     <div className="mt-[70px] mx-4 my-6 sm:mx-[70px] sm:mt-[70px] sm:mb-10">
@@ -38,7 +38,10 @@ const MovieList = ({ movieList }) => {
         {movies.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}
+            genres={genres}
+            movie={movie}
             id={movie.id}
+            imdbRating={movie.vote_average}
             title={movie.title}
             releaseDate={movie.release_date.slice(0, 4)}
             posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}

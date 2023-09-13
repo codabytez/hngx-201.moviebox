@@ -9,13 +9,15 @@ import Footer from "./Footer";
 
 const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const apiKey = "42f956d501059428aaea8646930dd130";
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_year=2023&sort_by=vote_average.desc&vote_count.gte=1000`;
+  const apiKey = "42f956d501059428aaea8646930dd130";
+  const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_year=2023&sort_by=vote_average.desc&vote_count.gte=1000`;
+  const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 
+  useEffect(() => {
     axios
       .get(apiUrl)
       .then((response) => {
@@ -27,6 +29,21 @@ const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
         const errorMessage = error;
         setError(errorMessage);
         console.error("Error fetching movie data:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(genreUrl)
+      .then((response) => {
+        const genreMap = {};
+        response.data.genres.forEach((genre) => {
+          genreMap[genre.id] = genre.name;
+        });
+        setGenres(genreMap);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
@@ -43,8 +60,8 @@ const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
             onSearchInputChange={onSearchInputChange}
             onHandleSearch={onHandleSearch}
           />
-          <Hero heroMovies={movies} />
-          <MovieList movieList={movies} />
+          <Hero heroMovies={movies} genres={genres} />
+          <MovieList movieList={movies} genres={genres} />
           <Footer />
         </>
       )}
