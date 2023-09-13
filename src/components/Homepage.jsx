@@ -13,7 +13,7 @@ const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiKey = "42f956d501059428aaea8646930dd130";
+  const apiKey = import.meta.env.VITE_TMDB_API_KEY;
   const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_year=2023&sort_by=vote_average.desc&vote_count.gte=1000`;
   const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 

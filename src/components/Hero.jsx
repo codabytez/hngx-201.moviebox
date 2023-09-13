@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import IMDBRating from "./IMDBRating";
 import { Link } from "react-router-dom";
 
-const Hero = ({ heroMovies, genres }) => {
+const Hero = ({ heroMovies }) => {
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   const movies = heroMovies.slice(0, 6);
 

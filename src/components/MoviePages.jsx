@@ -10,7 +10,7 @@ const MoviePage = () => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    const apiKey = "42f956d501059428aaea8646930dd130";
+    const apiKey = import.meta.env.VITE_TMDB_API_KEY;
     const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos`;
 
     axios

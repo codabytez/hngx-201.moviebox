@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const apiKey = "42f956d501059428aaea8646930dd130";
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const { query } = useParams();
@@ -58,7 +58,6 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
       setSearchResults([]);
     }
   }, [query]);
-
 
   return (
     <>
