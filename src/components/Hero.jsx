@@ -58,12 +58,12 @@ const Hero = ({ heroMovies, genres }) => {
                 onClick={() => handleIndicatorClick(index)}
               >
                 <div
-                  className={` bg-white rounded-md ${
+                  className={` bg-white rounded-md transition-all ${
                     index === currentMovieIndex ? "w-5 h-[3px] border" : ""
                   }`}
                 />
                 <p
-                  className={`items-center ${
+                  className={`items-center hover:text-white hover:text-base transition-all duration-300 ${
                     index === currentMovieIndex
                       ? "text-base font-bold leading-[14px]"
                       : "text-gray-400 text-xs font-bold leading-[14px]"
