@@ -56,7 +56,7 @@ const Hero = ({ heroMovies }) => {
                       />
                     </svg>
                   </div>
-                  <div className="text-white text-sm font-bold font-['DM Sans'] uppercase leading-normal">
+                  <div className="text-white text-sm font-bold uppercase leading-normal">
                     Watch trailer
                   </div>
                 </Link>

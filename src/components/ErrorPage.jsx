@@ -17,14 +17,16 @@ const ErrorPage = ({ error: { code, message } }) => {
           </p>
           <p className="text-gray-700 text-xl mb-4">{code}</p>
           <p className="text-gray-700 text-xl mb-4">{message}</p>
-          {message.includes("Network Error") || message.includes("404") ? (
-            <button
-              className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"
-              onClick={reloadPage}
-            >
-              {message.includes("Network Error") ? "Retry" : "Go Home"}
-            </button>
-          ) : null}
+          <button
+            className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"
+            onClick={reloadPage}
+          >
+            {message.includes("Network Error")
+              ? "Retry"
+              : message.includes("404")
+              ? "Go Home"
+              : "Try Again Later"}
+          </button>
         </div>
       </div>
     </div>
