@@ -55,15 +55,14 @@ const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
         <ErrorPage error={error} />
       ) : (
         <>
-          <LoadingPage />
-          {/* <Navbar
+          <Navbar
             searchQuery={searchQuery}
             onSearchInputChange={onSearchInputChange}
             onHandleSearch={onHandleSearch}
           />
           <Hero heroMovies={movies} genres={genres} />
           <MovieList movieList={movies} genres={genres} />
-          <Footer /> */}
+          <Footer />
         </>
       )}
     </div>
