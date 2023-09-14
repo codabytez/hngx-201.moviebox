@@ -11,6 +11,10 @@ const MovieCard = ({
   movie,
   genres,
 }) => {
+  const localDate = new Date(releaseDate);
+  const date = localDate.toISOString();
+  console.log(date);
+
   return (
     <Link to={`/movie/${id}`} className="min-w-[150px] max-w-[250px] w-[100%]">
       <div
@@ -22,7 +26,7 @@ const MovieCard = ({
           data-testid="movie-release-date"
           className="text-xs font-bold text-[#9CA3AF] pl-1"
         >
-          {releaseDate}
+          {date}
         </p>
         <h2
           data-testid="movie-title"

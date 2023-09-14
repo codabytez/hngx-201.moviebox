@@ -2,6 +2,7 @@ import MovieCard from "./MovieCard";
 
 const MovieList = ({ movieList, genres }) => {
   const movies = movieList;
+
   return (
     <div className="mt-[70px] mx-4 my-6 sm:mx-[70px] sm:mt-[70px] sm:mb-10">
       <div className="flex justify-between items-center mb-[44px]">
@@ -41,7 +42,7 @@ const MovieList = ({ movieList, genres }) => {
             id={movie.id}
             imdbRating={movie.vote_average}
             title={movie.title}
-            releaseDate={movie.release_date.slice(0, 4)}
+            releaseDate={movie.release_date}
             posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           />
         ))}

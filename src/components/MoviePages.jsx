@@ -23,7 +23,7 @@ const MoviePage = () => {
   }, [id]);
 
   const releaseDate = new Date(movie?.release_date);
-  const releaseDateUTC = releaseDate.getTime();
+  const releaseDateUTC = releaseDate.toISOString();
 
   return (
     <>
