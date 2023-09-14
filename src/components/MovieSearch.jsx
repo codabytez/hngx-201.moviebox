@@ -72,27 +72,29 @@ const MovieSearch = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
         {loading ? (
           <LoadingPage />
         ) : (
-          <div className="p-4">
-            <h2 className="text-black text-2xl sm:text-4xl font-bold py-8">
-              {searchResults.length
-                ? `${searchResults.length} Search results for: `
-                : "No search result for: "}
-              <span className="text-red-500">{query}</span>
-            </h2>
-            <div className="px-6 w-full min-w-[300px] max-w-[1400px] grid grid-cols-2 justify-items-center md:grid-cols-3 lg:grid-cols-4 gap-x-20 sm:gap-x-5 gap-y-10">
-              {searchResults.map((movie) => (
-                <MovieCard
-                  key={movie.id}
-                  id={movie.id}
-                  title={movie.title}
-                  releaseDate={movie.release_date.slice(0, 4)}
-                  posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  movie={movie}
-                  genres={genres}
-                  imdbRating={movie.vote_average}
-                />
-              ))}
-            </div>
+          <div className="p-4 h-screen flex flex-col justify-between">
+            <>
+              <h2 className="text-black text-2xl sm:text-4xl font-bold py-8">
+                {searchResults.length
+                  ? `${searchResults.length} Search results for: `
+                  : "No search result for: "}
+                <span className="text-red-500">{query}</span>
+              </h2>
+              <div className="px-6 w-full min-w-[300px] max-w-[1400px] grid grid-cols-2 justify-items-center md:grid-cols-3 lg:grid-cols-4 gap-x-20 sm:gap-x-5 gap-y-10">
+                {searchResults.map((movie) => (
+                  <MovieCard
+                    key={movie.id}
+                    id={movie.id}
+                    title={movie.title}
+                    releaseDate={movie.release_date.slice(0, 4)}
+                    posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                    movie={movie}
+                    genres={genres}
+                    imdbRating={movie.vote_average}
+                  />
+                ))}
+              </div>
+            </>
             <Footer />
           </div>
         )}

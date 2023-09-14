@@ -16,13 +16,13 @@ const LoadingPage = () => {
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 30000); // Simulate a 3-second loading time
+    }, 30000);
     return () => clearTimeout(loadingTimer);
   }, []);
 
   return (
     <div className="flex justify-center h-screen items-center gap-6">
-      <p className="text-3xl font-bold animate-pulse  flex items-center gap-2">
+      <div className="text-3xl font-bold animate-pulse  flex items-center gap-2">
         Please Wait
         <ReactLoading
           className="flex items-center pt-4"
@@ -30,7 +30,7 @@ const LoadingPage = () => {
           type={"cylon"}
           width={20}
         />{" "}
-      </p>
+      </div>
       <animated.div style={spinnerAnimation}>
         <ReactLoading color={"#000"} type={"spinningBubbles"} width={70} />
       </animated.div>

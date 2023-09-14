@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
 import MoviePageSidebar from "./MoviePageSidebar";
 import LoadingPage from "./LoadingPage";
 
@@ -24,7 +23,7 @@ const MoviePage = () => {
   }, [id]);
 
   const releaseDate = new Date(movie?.release_date);
-  const releaseDateUTC = releaseDate.toUTCString().slice(0, 16);
+  const releaseDateUTC = releaseDate.getTime();
 
   return (
     <>

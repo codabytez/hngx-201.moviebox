@@ -24,8 +24,8 @@ const Hero = ({ heroMovies }) => {
         {movies.length > 0 && (
           <div className="relative">
             <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-[600px] bg-black bg-opacity-70"></div>
-            <div className="absolute border-white h-full flex items-end sm:items-center p-7 lg:ml-[90px]">
-              <div className="text-white min-w-[220px] w-[90%] sm:w-[300px] md:w-[400px] flex flex-col gap-4">
+            <div className="absolute border-white h-full flex items-end sm:items-center px-7 p-10 lg:ml-[90px]">
+              <div className="text-white min-w-[220px] w-[80%] sm:w-[400px] md:w-[500px] lg:w-[600px] flex flex-col gap-4">
                 <h1 className="text-white text-2xl sm:text-3xl md:text-5xl font-bold md:leading-[56px]">
                   {movies[currentMovieIndex]?.title}
                 </h1>
@@ -65,13 +65,13 @@ const Hero = ({ heroMovies }) => {
             <img
               data-testid="movie-poster"
               src={`https://image.tmdb.org/t/p/original${movies[currentMovieIndex].backdrop_path}`}
-              className="h-[600px] w-full object-cover object-center"
+              className="h-[600px] w-full object-cover object-center "
               alt={movies[currentMovieIndex].title}
             />
           </div>
         )}
-        <div className="absolute top-0 right-10 hidden sm:flex h-full ">
-          <div className="flex flex-col gap-2 justify-center items-end w-10">
+        <div className="absolute bottom-0 right-1/2 sm:top-0 sm:right-10 flex h-full ">
+          <div className="flex sm:flex-col gap-2 justify-center items-end w-10 mb-2 sm:mb-0">
             {movies.slice(0, 6).map((_, index) => (
               <div
                 className="cursor-pointer text-white flex items-center gap-2 justify-start"
@@ -79,14 +79,14 @@ const Hero = ({ heroMovies }) => {
                 onClick={() => handleIndicatorClick(index)}
               >
                 <div
-                  className={` bg-white rounded-md transition-all ${
+                  className={` bg-white hidden sm:flex rounded-md transition-all ${
                     index === currentMovieIndex ? "w-5 h-[3px] border" : ""
                   }`}
                 />
                 <p
-                  className={`items-center hover:text-white hover:text-base transition-all duration-300 ${
+                  className={`items-center sm:hover:text-white sm:hover:text-base transition-all duration-300 ${
                     index === currentMovieIndex
-                      ? "text-base font-bold leading-[14px]"
+                      ? "text-base font-bold sm:leading-[14px]"
                       : "text-gray-400 text-xs font-bold leading-[14px]"
                   }`}
                 >

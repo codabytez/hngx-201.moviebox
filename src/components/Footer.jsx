@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="min-w-[300px]">
       <div className="flex-col items-center gap-8 flex pt-[70px] pb-[20px]">
-        <div className="items-center gap-12 inline-flex text-gray-900 text-lg font-bold">
+        <div className="items-center gap-8 inline-flex text-gray-900 text-lg font-bold">
           <Link to="#">
             <img
               className="hover:scale-110 transform transition-all"
@@ -32,7 +32,7 @@ const Footer = () => {
             <img src={youtube} alt="youtube" />
           </Link>
         </div>
-        <div className="gap-3 sm:gap-9 flex text-gray-900 text-sm sm:text-lg font-bold text-center">
+        <div className="gap-3 sm:gap-9 flex flex-col sm:flex-row text-gray-900 text-sm sm:text-lg font-bold text-center">
           <Link className="hover:text-gray-500 transition-all" to="#">
             Conditions of Use
           </Link>

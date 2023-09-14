@@ -20,11 +20,10 @@ function App() {
     setSearchQuery(event.target.value);
   };
 
-  const handleSearch = (event) => {
-    if (event.key === "Enter") {
-      navigate(`/search/${searchQuery}`);
-      setSearchQuery("");
-    }
+  const handleSearch = () => {
+    if (searchQuery.length < 1) return;
+    navigate(`/search/${searchQuery}`);
+    setSearchQuery("");
   };
 
   return (
