@@ -22,13 +22,13 @@ const LoadingPage = () => {
 
   return (
     <div className="flex justify-center h-screen items-center gap-6">
-      <p className="text-3xl font-bold animate-pulse flex items-center gap-2">
+      <p className="text-3xl font-bold animate-pulse  flex items-center gap-2">
         Please Wait
         <ReactLoading
           className="flex items-center pt-4"
           color={"#000"}
           type={"cylon"}
-          width={30}
+          width={20}
         />{" "}
       </p>
       <animated.div style={spinnerAnimation}>
