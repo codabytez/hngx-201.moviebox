@@ -13,7 +13,6 @@ const MovieCard = ({
 }) => {
   const localDate = new Date(releaseDate);
   const date = localDate.toISOString();
-  console.log(date);
 
   return (
     <Link to={`/movie/${id}`} className="min-w-[150px] max-w-[250px] w-[100%]">
