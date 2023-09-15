@@ -14,7 +14,7 @@ const Homepage = ({ searchQuery, onSearchInputChange, onHandleSearch }) => {
   const [error, setError] = useState(null);
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-  const apiUrl = `http://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&with_original_language=en`;
+  const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&with_original_language=en`;
   const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 
   useEffect(() => {
