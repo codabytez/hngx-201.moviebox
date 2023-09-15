@@ -22,13 +22,6 @@ const MoviePage = () => {
       });
   }, [id]);
 
-  // const releaseDate = movie?.release_date;
-  // console.log(releaseDate);
-  // const localDate = new Date(releaseDate);
-  // console.log(localDate);
-  // const releaseDateUTC = localDate.toISOString();
-  // console.log(releaseDateUTC);
-
   return (
     <>
       <div className="flex">
@@ -51,7 +44,10 @@ const MoviePage = () => {
                 <div className=" flex flex-col lg:flex-row gap-2 text-[20px] text-neutral-700  font-bold">
                   <h2 data-testid="movie-title">{movie?.title}</h2>
                   <span className=" text-[23px] hidden lg:inline-block">•</span>
-                  <p data-testid="movie-release-date"> {movie?.release_date}</p>
+                  <p data-testid="movie-release-date">
+                    {" "}
+                    {new Date(movie?.release_date).toISOString()}
+                  </p>
                   <span className=" text-[23px] hidden lg:inline-block">•</span>
                   <p data-testid="movie-runtime">{`${movie?.runtime}mins`}</p>
                 </div>
